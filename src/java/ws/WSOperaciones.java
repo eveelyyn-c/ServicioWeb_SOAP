@@ -22,7 +22,7 @@ public class WSOperaciones {
                 if (listUsuarios.get(i).getUsuario().equals(user) && listUsuarios.get(i).getPassword().equals(password)) {
                     mensaje = "Inicio sesión exitoso";
                 } else {
-                    mensaje = "Contraseña no coincide con su registro ";
+                    mensaje = "Contraseña es incorrecta";
                 }
             } else {
                 mensaje = "Este usuario no se encuentra";
