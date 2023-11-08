@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ws;
 
 import java.util.ArrayList;
@@ -17,18 +12,11 @@ import javax.jws.WebParam;
 @WebService(serviceName = "WSOperaciones")
 public class WSOperaciones {
 
-    /**
-     * Web service operation
-     */
-    
     ArrayList<Usuario> listUsuarios = new ArrayList<>();
     Usuario usuarios;
-
     @WebMethod(operationName = "Ingresar")
     public String Ingresar(@WebParam(name = "usuario") String user, @WebParam(name = "contrasenia") String password) {
-
         String mensaje = null;
-
         for (int i = 0; i < listUsuarios.size(); i++) {
             if (listUsuarios.get(i).getUsuario().equals(user)) {
                 if (listUsuarios.get(i).getUsuario().equals(user) && listUsuarios.get(i).getPassword().equals(password)) {
@@ -39,7 +27,6 @@ public class WSOperaciones {
             } else {
                 mensaje = "Este usuario no se encuentra";
             }
-
         }
         return mensaje;
 
@@ -50,7 +37,6 @@ public class WSOperaciones {
         String mensaje = ":(";
         Boolean est = false;
         if (password.equals(password2)) {
-
             for (int i = 0; i < listUsuarios.size(); i++) {
 
                 if (listUsuarios.get(i).getUsuario().equals(user)) {
@@ -58,7 +44,6 @@ public class WSOperaciones {
                     est = true;
                 }
             }
-
             if (!est) {
                 usuarios = new Usuario();
                 usuarios.setUsuario(user);
@@ -70,13 +55,9 @@ public class WSOperaciones {
         } else {
             System.out.println("Contraseña incorrecta");
         }
-
         return mensaje;
     }
 
-    /**
-     * Web service operation
-     */
     @WebMethod(operationName = "Depositar")
     public String Depositar(@WebParam(name = "cantidad") Integer cantidad, @WebParam(name = "usuario") String user) {
         int canti = 0;
@@ -89,7 +70,6 @@ public class WSOperaciones {
                 listUsuarios.get(i).setSaldo(canti);
                 mensaje = "Depósito realizado exitosamente...Su saldo actual es: " + canti;
             }
-
         }
         return mensaje;
     }
@@ -107,7 +87,6 @@ public class WSOperaciones {
                     mensaje = "Retiro realizado con éxito...Su saldo actual es: " + canti2;
                 }
             }
-
         }
         return mensaje;
     }
@@ -121,8 +100,7 @@ public class WSOperaciones {
                 saldo=listUsuarios.get(i).getSaldo();
             }
         }
-        return saldo;
-        
+        return saldo;  
     }
 
 }
