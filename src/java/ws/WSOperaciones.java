@@ -41,24 +41,5 @@ public class WSOperaciones {
             return -1;
         }
     }
-    
-  
-    @WebMethod(operationName = "consultaPalabra")
-    public String consultaPalabra(@WebParam(name = "name") String palabra) {
-        String defi= map.get(palabra);
-        if (defi !=null) {
-            return "La definicion es :"+defi;
-        }else  {
-            return "Palabra no encontrada";
-        }
-    }
-        private void CargarDiccionario() {
-        map = new HashMap<>();
-        map.put("gato", "Un animal doméstico felino.");
-        map.put("perro", "Un animal doméstico canino.");
-        map.put("pájaro", "Un animal alado.");
-    }
 
-
-    
 }
